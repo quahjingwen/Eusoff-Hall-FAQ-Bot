@@ -7,7 +7,7 @@ from load_data import get_media_equipment_info, get_ew_room_info, get_media_serv
 import datetime as dt
 import csv
 
-token = '659927123:AAG2TX87HOp5huOfso6FH9u4nq5Lf4eSkEY'
+token = 'TOKEN'
 bot = telebot.TeleBot(token)
 bf_menu, dinz_menu = load_data()
 
@@ -93,7 +93,8 @@ def halloffice_markup():
     markup.add(InlineKeyboardButton("Hall Office", callback_data="get_office_info"),
                InlineKeyboardButton("SCRC", callback_data="get_SCRC"),
                InlineKeyboardButton("JCRC", callback_data="get_JCRC"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def committee_markup():
@@ -104,7 +105,8 @@ def committee_markup():
                InlineKeyboardButton("Social Services", callback_data="get_ss"),
                InlineKeyboardButton("Sports", callback_data="get_sports"),
                InlineKeyboardButton("Others", callback_data="get_othercomm"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def sponsorship_markup():
@@ -112,13 +114,15 @@ def sponsorship_markup():
     markup.row_width = 2
     markup.add(InlineKeyboardButton("Sponsorship", callback_data="get_sponsorship"),
                InlineKeyboardButton("PDPA", callback_data="get_pdpa"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def finance_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
-    markup.add(InlineKeyboardButton("Back", callback_data="get_faq"))
+    markup.add(InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def facilitytype_markup():
@@ -131,7 +135,8 @@ def facilitytype_markup():
                InlineKeyboardButton("Other Facilities", callback_data="get_others"),
                InlineKeyboardButton("Rooms within Hall", callback_data="get_rooms"),
                InlineKeyboardButton("Printer", callback_data="get_printer"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def mediafacility_markup():
@@ -140,7 +145,8 @@ def mediafacility_markup():
     markup.add(InlineKeyboardButton("Media Equipment", callback_data="get_media_equipment"),
                InlineKeyboardButton("EusoffWorks Room", callback_data="get_ew_room"),
                InlineKeyboardButton("Media Services", callback_data="get_media_services"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def points_markup():
@@ -150,7 +156,8 @@ def points_markup():
                InlineKeyboardButton("Graduating Residents", callback_data="get_graduating"),
                InlineKeyboardButton("Points System", callback_data="get_points_system"),
                InlineKeyboardButton("Things to Note", callback_data="get_things2note"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def points_notes():
@@ -162,7 +169,8 @@ def points_notes():
                InlineKeyboardButton("Exchange", callback_data="get_exchange"),
                InlineKeyboardButton("Monitoring", callback_data="get_monitoring"),
                InlineKeyboardButton("Master's List", callback_data="get_masters_lists"),
-               InlineKeyboardButton("Back", callback_data="get_points"))
+               InlineKeyboardButton("Back", callback_data="get_points"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def demerit_markup():
@@ -170,7 +178,8 @@ def demerit_markup():
     markup.row_width = 2
     markup.add(InlineKeyboardButton("Offense Types", callback_data="get_offense_type"),
                InlineKeyboardButton("Housing Agreement", callback_data="get_housing_agreement"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 def award_markup():
@@ -180,7 +189,8 @@ def award_markup():
                InlineKeyboardButton("Top Field Awards", callback_data="get_topfield"),
                InlineKeyboardButton("Hall Excellence Awards", callback_data="get_hallex"),
                InlineKeyboardButton("General Awards", callback_data="get_general_awards"),
-               InlineKeyboardButton("Back", callback_data="get_faq"))
+               InlineKeyboardButton("Back", callback_data="get_faq"),
+               InlineKeyboardButton("Main Page", callback_data="get_main"))
     return markup
 
 @bot.callback_query_handler(func=lambda call: True)
